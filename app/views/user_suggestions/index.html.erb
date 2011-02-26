@@ -1,0 +1,13 @@
+<table border="1">
+  <tr>
+    <th>Name</th><th>Division</th><th>Department</th><th>Suggestion</th>
+    <th>Date Created</th><th>Last Updated</th>
+  </tr>
+  <% @usersuggestions.each do |us| %>
+    <tr>
+      <td><%= us.first_name %> <%= us.last_name %> </td><td><%= us.division %></td>
+      <td><%= us.department %></td><td><%= us.suggestion %></td>
+      <td><%= us.created_at %></td><td><%= us.updated_at %></td>
+    </tr>
+  <%end %>
+</table>

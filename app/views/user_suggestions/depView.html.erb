@@ -1,0 +1,16 @@
+<!--<% @usersuggestions.each do |us| %>
+   <% if us.department == @department %>
+     <% @depSuggestion = us %>
+   <% end %>
+<% end %>
+-->
+<h1><%= @usersuggestions.first.department %> Department's Suggestions</h1>
+<table border="1">
+  <% @usersuggestions.each do |us| %>
+    <tr>
+      <td><%= us.first_name %> <%= us.last_name %> </td><td><%= us.division %></td>
+      <td><%= us.department %></td><td><%= us.suggestion %></td>
+      <td><%= us.created_at %></td><td><%= us.updated_at %></td>
+    </tr>
+  <% end %>  
+</table>
