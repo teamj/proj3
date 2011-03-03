@@ -1,0 +1,8 @@
+<table border="1">
+  <% @users.each do |u| %>
+    <tr>
+      <td><%= u.first_name %></td><td><%= u.last_name %></td>
+    </tr>
+  <% end %>
+</table>
+<%= link_to "Add User", :controller => "users", :action => "new" %>

@@ -1,5 +1,16 @@
 Proj2::Application.routes.draw do
-  match 'user_suggestions/new_user' => 'user_suggestions#new_user'
+  match "pages/login", :via => [:get,:post]
+  
+  get "pages/logout"
+  root :to => "pages#login"
+  get "users/new"
+  match 'users/create' => 'users#create' 
+  get "users/edit"
+
+  get "users/index"
+
+  
+  
   match 'user_suggestions' => 'user_suggestions#index'
   match 'user_suggestions/divChairView/:div' => 'user_suggestions#divChairView'
   match 'user_suggestions/depView/:dep' => 'user_suggestions#depView'

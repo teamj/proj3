@@ -8,7 +8,5 @@ class UserSuggestionsController < ApplicationController
   def depView
     @usersuggestions = UserSuggestion.find_all_by_department(params[:dep])
   end
-  def new_user
-    @usersuggestions = UserSuggestion.new
-  end
+ 
 end
