@@ -34,7 +34,7 @@ create or replace function insertUserSuggestion(_userid integer, _suggestion tex
       || quote_literal(_suggestion) || '),insertSuggestion(' ||
       quote_literal(_suggestion) || '))';
     execute 'insert into user_suggestions (user_id, suggestion_id) values (' 
-      || userid || ',' || sql2 || ')';
+      || userid || ',' || sql1 || ')';
     return 't';
   end;
   $func$

@@ -1,2 +1,8 @@
 <h2>You are logged in</h2>
-<%= link_to "Continue", :controller => "users", :action => "index" %>
+<%= link_to "Continue", :controller => "users", :action => "index" %><br />
+<% if cookies.signed[:user_div] == cookies.signed[:user_dep] %>
+  <%= link_to "View suggestions", :controller => "user_suggestions", :action => "divChairView" %>
+<% else %>
+  <%= link_to "View suggestions", :controller => "user_suggestions", :action => "depView" %>
+<% end %>
+
