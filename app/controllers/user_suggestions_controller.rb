@@ -1,6 +1,17 @@
 class UserSuggestionsController < ApplicationController
   def index
     @usersuggestions = UserSuggestion.all
+    respond_to do |format|
+      format.html
+      format.xml {render :xml => @usersuggestions, :dasherize => false}
+    end
+  end
+  def suggestion
+    @usersuggestions = UserSuggestion.all
+    respond_to do |format|
+      format.html
+      format.xml {render :xml => @usersuggestions, :dasherize => false}
+    end
   end
   def divChairView
     division = cookies.signed[:user_div]
