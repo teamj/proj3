@@ -9,5 +9,8 @@
       <td><%= us.department %></td><td><%= us.suggestion %></td>
       <td><%= us.created_at %></td><td><%= us.updated_at %></td>
     </tr>
-  <%end %>
-</table>
+  <% end %>
+</table> <br />
+<% if cookies.signed[:authenticated] %>
+  <%= link_to "Main", :controller => "pages", :action => "continue" %>
+<% end %>

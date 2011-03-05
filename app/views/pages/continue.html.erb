@@ -1,8 +1,29 @@
-<h2>You are logged in</h2>
-<%= link_to "Continue", :controller => "users", :action => "index" %><br />
-<% if cookies.signed[:user_div] == cookies.signed[:user_dep] %>
-  <%= link_to "View suggestions", :controller => "user_suggestions", :action => "divChairView" %>
-<% else %>
-  <%= link_to "View suggestions", :controller => "user_suggestions", :action => "depView" %>
+<% if cookies.signed[:authenticated] %>
+  <h2>Welcome <%= cookies.signed[:user_fname] %></h2>
+  <%= link_to "View All Suggestions", :controller => "user_suggestions", 
+      :action => "index" %><br />
+  <%= link_to "View All Users", :controller => "users", :action => "index" %><br />
+  
+  <% if cookies.signed[:user_div] == "admin" && cookies.signed[:user_dep] == "admin" %> 
+    <%= link_to "Add New User", :controller => "users", :action => "new" %><br />
+    <%= link_to "Edit User", :controller => "users", :action => "chooseUser" %><br />
+  
+  <% elsif cookies.signed[:user_div] == cookies.signed[:user_dep] %>
+    <%= link_to "View Suggestions From Your Division" , :controller => 
+        "user_suggestions", :action => "divChairView" %><br />
+    <%= link_to "Make Suggestion", :controller => "user_suggestions", :action => "new" %>
+        <br />
+    <%= link_to "Edit Suggestion From Your Division", :controller => "user_suggestions",
+        :action => "chooseSuggestion" %>
+         
+  <% else %>
+    <%= link_to "View Suggestions From Your Division", :controller => 
+        "user_suggestions", :action => "divChairView" %><br />
+    <%= link_to "View Suggestions From Your Department", :controller => 
+        "user_suggestions", :action => "depView" %><br />
+    <%= link_to "Make Suggestion", :controller => "user_suggestions", 
+        :action => "new" %><br />
+    <%= link_to "Edit Your Suggestions", :controller => "user_suggestions", 
+        :action => "chooseSuggestion" %>
+  <% end %>
 <% end %>
-

@@ -1,3 +1,4 @@
+<h2><%= cookies.signed[:user_div] %> Division's Suggestions</h2>
 <table border="1">
   <tr>
     <th>Name</th><th>Division</th><th>Department</th><th>Suggestion</th>
@@ -10,4 +11,9 @@
       <td><%= us.created_at %></td><td><%= us.updated_at %></td>
     </tr>
   <%end %>
-</table>
+</table><br />
+<%= link_to "Main", :controller => "pages", :action => "continue" %><br />
+<% if cookies.signed[:user_div] == cookies.signed[:user_dep] && cookies.signed[:user_div] != "admin" %>
+  <%= link_to "Edit Suggestion", :controller => "user_suggestions", 
+      :action => "chooseSuggestion" %>
+<% end %>

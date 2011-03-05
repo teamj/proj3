@@ -1,11 +1,9 @@
-<!--<% @usersuggestions.each do |us| %>
-   <% if us.department == @department %>
-     <% @depSuggestion = us %>
-   <% end %>
-<% end %>
--->
-<h1><%= @usersuggestions.first.department %> Department's Suggestions</h1>
+<h2><%= cookies.signed[:user_dep] %> Department's Suggestions</h2>
 <table border="1">
+  <tr>
+    <th>Name</th><th>Division</th><th>Department</th><th>Suggestion</th>
+    <th>Date Created</th><th>Last Update</th>
+  </tr>
   <% @usersuggestions.each do |us| %>
     <tr>
       <td><%= us.first_name %> <%= us.last_name %> </td><td><%= us.division %></td>
@@ -13,4 +11,5 @@
       <td><%= us.created_at %></td><td><%= us.updated_at %></td>
     </tr>
   <% end %>  
-</table>
+</table><br />
+<%= link_to "Main", :controller => "pages", :action => "continue" %>

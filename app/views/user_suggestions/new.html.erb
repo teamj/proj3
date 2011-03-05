@@ -1,7 +1,13 @@
-<h2>New Suggestion</h2>
-<%= form_for :user_suggestion, :url => {:action => "create"} do |f| %>
-  <%= f.label "Enter your suggestion" %><br />
-  <%= f.text_field :suggestion %>
-  <%= f.hidden_field :id, :value => cookies.signed[:user_id] %>
-  <%= f.submit "Submit" %>
+<% if cookies.signed[:authenticated] %>
+  <% if cookies.signed[:user_div] != "admin" && cookies.signed[:user_dep] != "admin" %>
+    <h2>New Suggestion</h2>
+  
+    <%= form_for :user_suggestion, :url => {:action => "create"} do |f| %>
+      <%= f.label "Enter your suggestion" %><br />
+      <%= f.text_field :suggestion %>
+      <%= f.submit "Submit" %>
+    <% end %>
+  <% end %>
+<% else %>
+  <h2>You do not have access to view this page</h2>
 <% end %>
