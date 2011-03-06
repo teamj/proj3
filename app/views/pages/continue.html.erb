@@ -10,17 +10,17 @@
     <%= link_to "Reset User Password", :controller => "users", :action => "resetPass" %><br />
   
   <% elsif cookies.signed[:divChair] %>
-    <%= link_to "View Suggestions From Your Division" , :controller => 
+    <%= link_to "View Division Suggestions" , :controller => 
         "user_suggestions", :action => "divChairView" %><br />
     <%= link_to "Make Suggestion", :controller => "user_suggestions", :action => "new" %>
         <br />
-    <%= link_to "Edit Suggestion From Your Division", :controller => "user_suggestions",
+    <%= link_to "Edit Division Suggestions", :controller => "user_suggestions",
         :action => "chooseSuggestion" %>
          
   <% else %>
-    <%= link_to "View Suggestions From Your Division", :controller => 
+    <%= link_to "View Division Suggestions", :controller => 
         "user_suggestions", :action => "divChairView" %><br />
-    <%= link_to "View Suggestions From Your Department", :controller => 
+    <%= link_to "View Department Suggestions", :controller => 
         "user_suggestions", :action => "depView" %><br />
     <%= link_to "Make Suggestion", :controller => "user_suggestions", 
         :action => "new" %><br />
