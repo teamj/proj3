@@ -4,11 +4,12 @@
       :action => "index" %><br />
   <%= link_to "View All Users", :controller => "users", :action => "index" %><br />
   
-  <% if cookies.signed[:user_div] == "admin" && cookies.signed[:user_dep] == "admin" %> 
+  <% if cookies.signed[:admin] %> 
     <%= link_to "Add New User", :controller => "users", :action => "new" %><br />
     <%= link_to "Edit User", :controller => "users", :action => "chooseUser" %><br />
+    <%= link_to "Reset User Password", :controller => "users", :action => "resetPass" %><br />
   
-  <% elsif cookies.signed[:user_div] == cookies.signed[:user_dep] %>
+  <% elsif cookies.signed[:divChair] %>
     <%= link_to "View Suggestions From Your Division" , :controller => 
         "user_suggestions", :action => "divChairView" %><br />
     <%= link_to "Make Suggestion", :controller => "user_suggestions", :action => "new" %>

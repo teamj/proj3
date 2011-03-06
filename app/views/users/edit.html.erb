@@ -1,6 +1,6 @@
 <!-- app/views/users/edit.html.erb -->
-<% if cookies.signed[:authenticated] %>
-  <% if cookies.signed[:user_div] == "admin" && cookies.signed[:user_dep] == "admin" %>
+
+  <% if cookies.signed[:admin] %>
     <%= form_for @user, :url => {:action => "update"} do |f| %>
       <%= f.label "First Name: " %><br /><%= f.text_field :first_name %><br />
       <%= f.label "Last Name: " %><br /><%= f.text_field :last_name %><br />
@@ -11,4 +11,4 @@
       <%= f.submit "Submit" %>
     <% end %>
   <% end %>
-<% end %>
+

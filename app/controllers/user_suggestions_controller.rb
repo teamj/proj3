@@ -33,10 +33,9 @@ class UserSuggestionsController < ApplicationController
   end
   
   def chooseSuggestion
-    division = cookies.signed[:user_div]
-    department = cookies.signed[:user_dep]
     id = cookies.signed[:user_id]
-    if division == department  
+    division = cookies.signed[:user_div]
+    if cookies.signed[:divChair]  
       @usersuggestions = UserSuggestion.find_all_by_division(division)
     
     else

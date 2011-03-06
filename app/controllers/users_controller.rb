@@ -15,8 +15,9 @@ class UsersController < ApplicationController
     department = params[:user][:dep]
     conn = ActiveRecord::Base.connection
     sql = "insert into users_view (first_name,last_name,username,password," +
-            "division,department) values ('" + first_name + "','" + last_name + "','" + username +
-            "','" + password + "','" + division + "','" + department + "')"
+          "division,department) values ('" + first_name + "','" + last_name + 
+          "','" + username + "','" + password + "','" + division + "','" + 
+          department + "')"
     conn.insert(sql)
     redirect_to :controller => "users", :action => "index"
   end
@@ -36,6 +37,31 @@ class UsersController < ApplicationController
       redirect_to :controller => "users", :action => "index"
     else
       render :action => "edit"
+    end
+  end
+  
+  def resetPass
+     
+  end
+  
+  def updatePass
+    username = params[:logininfo][:username]
+    password = params[:logininfo][:password]
+    conn = ActiveRecord::Base.connection
+    result = conn.select_value("select resetPass('" + username + "','" + password + "')")
+    if result == "t"
+      cookies.signed[:resetPassSuccess] = true
+    elsif result == "f"
+      cookies.signed[:resetPassSuccess] = false 
+    end
+    redirect_to :controller => "users", :action => "resetPassResult"
+  end
+  
+  def resetPassResult
+    if cookies.signed[:resetPassSuccess] = true
+      @result = "Password has been changed"
+    elsif cookies.signed[:resetPassSuccess] = false
+      @result = "Failed to change password"
     end
   end
 

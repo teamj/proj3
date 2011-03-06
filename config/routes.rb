@@ -14,19 +14,24 @@ Proj2::Application.routes.draw do
   match "users/chooseUser" => "users#chooseUser"
   get "users/index"
   match "users" => "users#index"
-  match 'suggestions/update' => 'suggestions#update'
+  match 'users/resetPass' => 'users#resetPass'
+  match 'users/updatePass' => 'users#updatePass'
+  #match 'users/updatePassSuccess' => 'users#updatePassSuccess'
+  match 'users/resetPassResult' => 'users#resetPassResult'
   
+  match 'suggestions/update' => 'suggestions#update'
+  match 'user_suggestions' => 'user_suggestions#index'
   match 'user_suggestions/new' => 'user_suggestions#new'
   match 'user_suggestions/create' => 'user_suggestions#create'
   match 'user_suggestions/chooseSuggestion' => 'user_suggestions#chooseSuggestion'
   match 'user_suggestions/edit' => 'user_suggestions#edit'
   match 'user_suggestions/divChairView/' => 'user_suggestions#divChairView'
   match 'user_suggestions/depView/' => 'user_suggestions#depView'
-  match 'user_suggestions' => 'user_suggestions#suggestion'
+  #match 'user_suggestions' => 'user_suggestions#suggestion'  TEST FOR FLEX
   match '/history/history.css' => 'user_suggestions#suggestion'
   match '/history/history.js' => 'user_suggestions#suggestion'
   match '/swfobject.js' => 'user_suggestions#suggestion'
-  #match 'user_suggestions/suggestion.html' => 'user_suggestions#suggestion'
+  #match 'user_suggestions/suggestion.html' => 'user_suggestions#suggestion'  TEST FOR FLEX
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
