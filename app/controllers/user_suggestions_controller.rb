@@ -6,7 +6,10 @@ class UserSuggestionsController < ApplicationController
       format.xml {render :xml => @usersuggestions, :dasherize => false}
     end
   end
-  def suggestion
+  def indexSortByDiv
+    @usersuggestions = UserSuggestion.order("department ASC")
+  end
+  def suggestion # FOR FLEX
     @usersuggestions = UserSuggestion.all
     respond_to do |format|
       format.html
