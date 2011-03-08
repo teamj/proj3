@@ -1,5 +1,5 @@
 <% if cookies.signed[:authenticated] %>
-  <% if cookies.signed[:user_div] != "admin" && cookies.signed[:user_dep] != "admin" %>
+  <% if !(cookies.signed[:admin]) %>
     <h2><%= cookies.signed[:user_div] %> Division's Suggestions</h2>
     <table border="1">
       <tr>

@@ -1,5 +1,5 @@
 <% if cookies.signed[:authenticated] %>
-  <% if cookies.signed[:user_div] != "admin" && cookies.signed[:user_dep] != "admin" %>
+  <% if !(cookies.signed[:admin]) %>
     <%= form_for @usersuggestion, :url => {:controller => "suggestions", :action => "update"} do |f| %>
       <%= f.label "Edit Suggestion: " %><br /><%= f.text_area :suggestion %>
       <%= f.hidden_field :suggestionid %>

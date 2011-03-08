@@ -33,6 +33,11 @@ Proj2::Application.routes.draw do
   match '/history/history.js' => 'user_suggestions#suggestion'
   match '/swfobject.js' => 'user_suggestions#suggestion'
   match 'user_suggestions/indexSortByDiv' => 'user_suggestions#indexSortByDiv'
+  match 'user_suggestions/indexSortByDep' => 'user_suggestions#indexSortByDep'
+  match 'user_suggestions/indexSortByName' => 'user_suggestions#indexSortByName'
+  match 'user_suggestions/indexSortByDiv' => 'user_suggestions#indexSortByDiv'
+  match 'user_suggestions/indexSortByCreate' => 'user_suggestions#indexSortByCreate'
+  match 'user_suggestions/indexSortByMod' => 'user_suggestions#indexSortByMod'
   #match 'user_suggestions/suggestion.html' => 'user_suggestions#suggestion'  TEST FOR FLEX
   # The priority is based upon order of creation:
   # first created -> highest priority.

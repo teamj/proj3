@@ -3,12 +3,24 @@
 -- must run addInsertFuncs.sql first for this to work
 
 -- Add users and suggestions records
-insert into user_suggestion_view(first_name, last_name, username, password, 
-  division, department, suggestion) values ('john','doe','userjohn','johnpass',
-  'div1','dep1','johns suggestion');
-insert into user_suggestion_view(first_name, last_name, username, password, 
-  division, department, suggestion) values ('jane','doe','userjane','janepass',
-  'div2','dep2','janes suggestion');
-insert into user_suggestion_view(first_name, last_name, username, password, 
-  division, department, suggestion) values ('bob','dole','userbob','bobpass',
-  'div3','dep3','johns suggestion');
+insert into user_suggestion_view_init(first_name, last_name, username, password, 
+  division, department, suggestion) values ('john','doe','johnuser','johnpass',
+  'admin','admin','johns suggestion');
+insert into user_suggestion_view_init(first_name, last_name, username, password, 
+  division, department, suggestion) values ('jane','doe','janeuser','janepass',
+  'TECH','TECH','janes suggestion');
+insert into user_suggestion_view_init(first_name, last_name, username, password, 
+  division, department, suggestion) values ('bill','gates','billuser','billpass',
+  'TECH','CENT','bills suggestion');
+insert into user_suggestion_view_init(first_name, last_name, username, password, 
+  division, department, suggestion) values ('linus','torvalds','linususer','linuspass',
+  'TECH','ICS','linus suggestion');
+insert into user_suggestion_view_init(first_name, last_name, username, password, 
+  division, department, suggestion) values ('james','smith','jamesuser','jamespass',
+  'LIBARTS','LIBARTS','james suggestion');
+insert into user_suggestion_view_init(first_name, last_name, username, password, 
+  division, department, suggestion) values ('smith','james','smithuser','smithpass',
+  'LIBARTS','MATH','smiths suggestion');
+insert into user_suggestion_view_init(first_name, last_name, username, password, 
+  division, department, suggestion) values ('paul','jackson','pauluser','paulpass',
+  'LIBARTS','SCI','pauls suggestion');

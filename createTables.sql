@@ -33,9 +33,18 @@ create table user_suggestions(
   suggestion_id integer references suggestions(id)
 );
 
--- create view
+-- create view for web app
 drop view if exists user_suggestion_view cascade;
 create view user_suggestion_view as 
+  select users.id as userid,users.first_name,users.last_name,users.username,users.password,users.enc_pass,
+  users.salt,users.division,users.department,suggestions.id as suggestionid,suggestions.suggestion,suggestions.created_at,
+  suggestions.updated_at 
+  from users join user_suggestions on users.id=user_suggestions.user_id
+  join suggestions on user_suggestions.suggestion_id=suggestions.id;
+  
+-- create view for sql script
+drop view if exists user_suggestion_view_init cascade;
+create view user_suggestion_view_init as 
   select users.id as userid,users.first_name,users.last_name,users.username,users.password,users.enc_pass,
   users.salt,users.division,users.department,suggestions.id as suggestionid,suggestions.suggestion,suggestions.created_at,
   suggestions.updated_at 

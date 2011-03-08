@@ -7,9 +7,25 @@ class UserSuggestionsController < ApplicationController
     end
   end
   def indexSortByDiv
+    @usersuggestions = UserSuggestion.order("division ASC")
+  end
+  
+  def indexSortByDep
     @usersuggestions = UserSuggestion.order("department ASC")
   end
-  def suggestion # FOR FLEX
+  
+  def indexSortByName
+    @usersuggestions = UserSuggestion.order("last_name ASC")
+  end
+  
+  def indexSortByCreate
+    @usersuggestions = UserSuggestion.order("created_at ASC")
+  end
+  
+  def indexSortByMod
+    @usersuggestions = UserSuggestion.order("updated_at ASC")
+  end
+  def suggestion # TEST FOR FLEX
     @usersuggestions = UserSuggestion.all
     respond_to do |format|
       format.html
@@ -47,6 +63,7 @@ class UserSuggestionsController < ApplicationController
   end
   
   def edit
+    
     @usersuggestion = UserSuggestion.find_by_suggestionid(params[:id])
   end
 end
