@@ -8,8 +8,8 @@ Load "createTables.sql", then "addInsertFuncs.sql", then addAuthenticationFuncs.
 SQL script explanation:
   createTables.sql - created the tables for the database and also the user_suggestion_view.  
 
-  addInsertFuncs.sql - adds functions to aid in inserting data. Has separate functions for using "addIninData.sql" and 
-                       for adding data using the web app.
+  addInsertFuncs.sql - adds functions to aid in inserting data. Has separate functions for using "addInitData.sql" and 
+                       for adding suggestions using the web app.
 
   addAuthenticationFuncs.sql - adds functions to encrypt user passwords and authenticate a user.
 
@@ -19,7 +19,7 @@ SQL script explanation:
 
 List of important files:
 
-
+  
 
 Features:
 
