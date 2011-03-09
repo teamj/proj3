@@ -41,7 +41,12 @@ class UsersController < ApplicationController
   end
   
   def resetPass
-     
+  #  success = params[:success]
+  #  if success
+  #    @notice = "Successfully reset password"
+  #  else 
+  #    @notice = "Reset a users password"
+  #  end     
   end
   
   def updatePass
@@ -51,8 +56,10 @@ class UsersController < ApplicationController
     result = conn.select_value("select resetPass('" + username + "','" + password + "')")
     if result == "t"
       cookies.signed[:resetPassSuccess] = true
+      #redirect_to :controller => "users", :action => "resetPass", :success => true
     elsif result == "f"
-      cookies.signed[:resetPassSuccess] = false 
+      cookies.signed[:resetPassSuccess] = false
+      #redirect_to :controller => "users", :action => "resetPass", :success => false
     end
     redirect_to :controller => "users", :action => "resetPassResult"
   end
