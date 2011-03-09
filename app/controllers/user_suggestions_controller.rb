@@ -1,45 +1,41 @@
 class UserSuggestionsController < ApplicationController
   def index
-    @usersuggestions = UserSuggestion.all
-    respond_to do |format|
-      format.html
-      format.xml {render :xml => @usersuggestions, :dasherize => false}
+    sortBy = params[:sortBy]
+    if sortBy == "division"
+      @usersuggestions = UserSuggestion.order("division ASC")
+    elsif sortBy == "department"
+      @usersuggestions = UserSuggestion.order("department ASC")
+    elsif sortBy == "name"
+      @usersuggestions = UserSuggestion.order("last_name ASC")
+    elsif sortBy == "mod"
+      @usersuggestions = UserSuggestion.order("updated_at ASC")
+    else
+      @usersuggestions = UserSuggestion.all
+      respond_to do |format|
+        format.html
+        format.xml {render :xml => @usersuggestions, :dasherize => false}
+      end
     end
   end
-  def indexSortByDiv
-    @usersuggestions = UserSuggestion.order("division ASC")
-  end
   
-  def indexSortByDep
-    @usersuggestions = UserSuggestion.order("department ASC")
-  end
+  #def suggestion # TEST FOR FLEX
+  #  @usersuggestions = UserSuggestion.all
+  #  respond_to do |format|
+  #    format.html
+  #    format.xml {render :xml => @usersuggestions, :dasherize => false}
+  #  end
+  #end
   
-  def indexSortByName
-    @usersuggestions = UserSuggestion.order("last_name ASC")
-  end
-  
-  def indexSortByCreate
-    @usersuggestions = UserSuggestion.order("created_at ASC")
-  end
-  
-  def indexSortByMod
-    @usersuggestions = UserSuggestion.order("updated_at ASC")
-  end
-  def suggestion # TEST FOR FLEX
-    @usersuggestions = UserSuggestion.all
-    respond_to do |format|
-      format.html
-      format.xml {render :xml => @usersuggestions, :dasherize => false}
-    end
-  end
   def divChairView
     division = cookies.signed[:user_div]
     @usersuggestions = UserSuggestion.find_all_by_division(division)
   end
+  
   def depView
     department = cookies.signed[:user_dep]
     @usersuggestions = UserSuggestion.find_all_by_department(department)
   end
+  
   def create
     suggestion = params[:user_suggestion][:suggestion]
     id = cookies.signed[:user_id]
@@ -63,7 +59,6 @@ class UserSuggestionsController < ApplicationController
   end
   
   def edit
-    
     @usersuggestion = UserSuggestion.find_by_suggestionid(params[:id])
   end
 end
