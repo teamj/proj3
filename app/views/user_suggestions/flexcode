@@ -11,7 +11,7 @@
 	<fx:Declarations>
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
 		<mx:HTTPService id="getSuggestions"
-		    url="http://localhost:3000/user_suggestions/index.xml"
+		    url="http://localhost:3000/user_suggestions.xml"
 			resultFormat="e4x"
 			result="suggestionData=event.result as XML" />
 	</fx:Declarations>

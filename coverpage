@@ -1,0 +1,37 @@
+GitHub public link: github.com/joeworkmn/proj2.git
+
+Create proj2 database and include pgcrypto.sql
+
+Load "createTables.sql", then "addInsertFuncs.sql", then addAuthenticationFuncs.sql, then addResetPassFunc.sql, 
+     then addInitData.sql
+
+SQL script explanation:
+  createTables.sql - created the tables for the database and also the user_suggestion_view.  
+
+  addInsertFuncs.sql - adds functions to aid in inserting data. Has separate functions for using "addIninData.sql" and 
+                       for adding data using the web app.
+
+  addAuthenticationFuncs.sql - adds functions to encrypt user passwords and authenticate a user.
+
+  addInitData.sql - adds user records along with their suggestion.
+
+  addResetPassFunc.sql - adds function to reset a users password.
+
+List of important files:
+
+
+
+Features:
+
+  The login page works correctly
+
+  The new submissions page works correctly and associates the submission with the correct user id
+
+  The page to select existing submissions for editing, and the page to edit the submission works correctly
+      and can be updated correctly
+
+  The publicly viewable suggestions page shows all the suggestions in the correct order and the right columns
+  
+  The extra credit pages to order the submissions by division,department,name,creation date,modification date work correctly
+
+
