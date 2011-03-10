@@ -5,21 +5,50 @@ Create proj2 database and include pgcrypto.sql
 Load "createTables.sql", then "addInsertFuncs.sql", then addAuthenticationFuncs.sql, then addResetPassFunc.sql, 
      then addInitData.sql
 
+
+
 SQL script explanation:
-  createTables.sql - created the tables for the database and also the user_suggestion_view.  
+  createTables.sql - creates the users, suggestions, and user_suggestions join
+                     table for the database and also the user_suggestion_view.  
 
-  addInsertFuncs.sql - adds functions to aid in inserting data. Has separate functions for using "addInitData.sql" and 
-                       for adding suggestions using the web app.
+  addInsertFuncs.sql - adds functions to aid in inserting data. Has separate 
+                       functions for using "addInitData.sql" and for adding 
+                       suggestions using the web app.
 
-  addAuthenticationFuncs.sql - adds functions to encrypt user passwords and authenticate a user.
+  addAuthenticationFuncs.sql - adds functions to encrypt user passwords and 
+                               authenticate a user. Also creates user users_view 
+                               and rule for this view.
 
   addInitData.sql - adds user records along with their suggestion.
 
   addResetPassFunc.sql - adds function to reset a users password.
 
-List of important files:
 
+
+
+List of important files:
+  app/models
+    suggestion.rb, user_suggestion.rb, user.rb, 
+    
+  app/controllers
+    users_controller.rb, pages_controller.rb, user_suggestions_controller.rb,
+    suggestions_controller.rb
+    
+  app/views/pages
+    continue.html.erb, login.html.erb, 
   
+  app/views/suggestions
+    edit.html.erb, update.html.erb
+    
+  app/views/user_suggestions
+    chooseUserSuggestion.html.erb, new.html.erb, depView.html.erb, divChairView.html.erb,
+    edit.html.erb, index.html.erb, 
+    
+  app/views/users
+    chooseUser.html.erb, index.html.erb, resetPassResult.html.erb, edit.html.erb, 
+    new.html.erb, resetPass.html.erb
+    
+
 
 Features:
 

@@ -3,6 +3,7 @@
   <%= link_to "View All Suggestions", :controller => "user_suggestions", 
       :action => "index" %><br />
   <%= link_to "View All Users", :controller => "users", :action => "index" %><br />
+  <%= link_to "Logout", :controller => "pages", :action => "logout" %><br />
   
   <% if cookies.signed[:admin] %> 
     <%= link_to "Add New User", :controller => "users", :action => "new" %><br />
