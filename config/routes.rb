@@ -28,7 +28,7 @@ Proj2::Application.routes.draw do
   match 'user_suggestions/edit' => 'user_suggestions#edit'
   match 'user_suggestions/divChairView/' => 'user_suggestions#divChairView'
   match 'user_suggestions/depView/' => 'user_suggestions#depView'
-  match 'user_suggestions/proj2.html' => 'user_suggestions#index'  #TEST FOR FLEX
+  #match 'user_suggestions/proj2.html' => 'user_suggestions#index'  #TEST FOR FLEX
   match '/history/history.css' => 'user_suggestions#suggestion'
   match '/history/history.js' => 'user_suggestions#suggestion'
   match '/swfobject.js' => 'user_suggestions#suggestion'
