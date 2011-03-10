@@ -41,7 +41,12 @@ class UsersController < ApplicationController
   end
   
   def resetPass
-     
+    fail = params[:fail]
+    if fail
+      @notice = "Failed to reset password"
+    else
+      @notice = "Reset a password"
+    end   
   end
   
   def updatePass
@@ -50,19 +55,14 @@ class UsersController < ApplicationController
     conn = ActiveRecord::Base.connection
     result = conn.select_value("select resetPass('" + username + "','" + password + "')")
     if result == "t"
-      cookies.signed[:resetPassSuccess] = true
+      redirect_to :controller => "users", :action => "resetPassResult"
     elsif result == "f"
-      cookies.signed[:resetPassSuccess] = false 
+      redirect_to :controller => "users", :action => "resetPass", :fail => true
     end
-    redirect_to :controller => "users", :action => "resetPassResult"
   end
   
   def resetPassResult
-    if cookies.signed[:resetPassSuccess] = true
-      @result = "Password has been changed"
-    elsif cookies.signed[:resetPassSuccess] = false
-      @result = "Failed to change password"
-    end
+    @result = "Password has been changed"
   end
 
 end

@@ -29,6 +29,23 @@ class PagesController < ApplicationController
   end
 
   def logout
+    #cookies.signed[:admin] = false
+    #cookies.signed[:divChair] = false
+    #cookies.signed[:user_id] = nil
+    #cookies.signed[:user_div] = nil
+    #cookies.signed[:user_dep] = nil
+    #cookies.signed[:user_fname] = nil
+    #cookies.signed[:user_lname] = nil
+    #cookies.signed[:authenticated] = false
+    cookies.delete :admin
+    cookies.delete :divChair
+    cookies.delete :user_id
+    cookies.delete :user_div
+    cookies.delete :user_dep
+    cookies.delete :user_fname
+    cookies.delete :user_lname
+    cookies.delete :authenticated
+    redirect_to :controller => "pages", :action => "login"
   end
 
 end

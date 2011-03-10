@@ -10,10 +10,10 @@ insert into user_suggestion_view_init(first_name, last_name, username, password,
   division, department, suggestion) values ('jane','doe','janeuser','janepass',
   'TECH','TECH','janes suggestion');
 insert into user_suggestion_view_init(first_name, last_name, username, password, 
-  division, department, suggestion) values ('bill','gates','billuser','billpass',
+  division, department, suggestion) values ('bill','clinton','billuser','billpass',
   'TECH','CENT','bills suggestion');
 insert into user_suggestion_view_init(first_name, last_name, username, password, 
-  division, department, suggestion) values ('linus','torvalds','linususer','linuspass',
+  division, department, suggestion) values ('tim','duncan','linususer','linuspass',
   'TECH','ICS','linus suggestion');
 insert into user_suggestion_view_init(first_name, last_name, username, password, 
   division, department, suggestion) values ('james','smith','jamesuser','jamespass',

@@ -1,5 +1,5 @@
 <% if cookies.signed[:admin] %>
-  <h2>Reset a users password</h2>
+  <h2><%= @notice %></h2>
   <% form_for :logininfo, :url => {:action => "updatePass"} do |f| %>
     <%= f.label "Username" %><br /><%= f.text_field :username %><br />
     <%= f.label "Password" %><br /><%= f.password_field :password %><br />
