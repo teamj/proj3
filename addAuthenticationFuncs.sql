@@ -29,9 +29,8 @@ drop view if exists users_view;
 create view users_view as select users.first_name,users.last_name,users.username,
   users.password, users.division, users.department from users;
 create or replace rule ins_user as on insert to users_view
-  do instead insert into users(first_name,last_name,username,password,enc_pass,salt,division,department)
-  values (new.first_name,new.last_name,new.username,new.password,
-  make_pass(make_salt(new.password)||new.password),
+  do instead insert into users(first_name,last_name,username,enc_pass,salt,division,department)
+  values (new.first_name,new.last_name,new.username,make_pass(make_salt(new.password)||new.password),
   make_salt(new.password),new.division,new.department);
   
 -- create function for getting id

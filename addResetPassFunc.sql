@@ -13,7 +13,7 @@ create or replace function resetPass(_username text, _password text)
       salt1 := make_salt(now()||_password);
       execute 'update users set enc_pass=' || 
         quote_literal(make_pass(salt1||_password))
-        || ',salt=' || quote_literal(salt1) || ',password=' || quote_literal(_password) ||
+        || ',salt=' || quote_literal(salt1) || 
         ' where username=' || quote_literal(_username);
       get diagnostics success = row_count;
       return success;

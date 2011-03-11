@@ -4,7 +4,8 @@ class SuggestionsController < ApplicationController
 
   def update
     @usersuggestion = Suggestion.find(params[:user_suggestion][:suggestionid])
-    if @usersuggestion.update_attributes(:suggestion => params[:user_suggestion][:suggestion])
+    suggestion = params[:user_suggestion][:suggestion]
+    if @usersuggestion.update_attributes(:suggestion => suggestion) #update_attributes handles characters such as apostrophes
       redirect_to :controller => "user_suggestions", :action => "index"
     else
       render :action => "edit"

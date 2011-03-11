@@ -38,6 +38,7 @@ class UserSuggestionsController < ApplicationController
   
   def create
     suggestion = params[:user_suggestion][:suggestion]
+    suggestion = suggestion.gsub(/'/,"''")
     id = cookies.signed[:user_id]
     conn = ActiveRecord::Base.connection
     sql = "insert into user_suggestion_view (userid,suggestion) values (" + id.to_s +

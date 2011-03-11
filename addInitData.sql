@@ -13,8 +13,8 @@ insert into user_suggestion_view_init(first_name, last_name, username, password,
   division, department, suggestion) values ('bill','clinton','billuser','billpass',
   'TECH','CENT','bills suggestion');
 insert into user_suggestion_view_init(first_name, last_name, username, password, 
-  division, department, suggestion) values ('tim','duncan','linususer','linuspass',
-  'TECH','ICS','linus suggestion');
+  division, department, suggestion) values ('tim','duncan','timuser','timpass',
+  'TECH','ICS','tims suggestion');
 insert into user_suggestion_view_init(first_name, last_name, username, password, 
   division, department, suggestion) values ('james','smith','jamesuser','jamespass',
   'LIBARTS','LIBARTS','james suggestion');
