@@ -1,0 +1,11 @@
+<h2>Rate the Suggestion: </h2>
+<h3><%= @suggestion.suggestion %></h3>
+<% form_for :rating, :url => {:action => "survey"} do |r| %>
+  <%= r.radio_button :choice, 1 %><%= r.label "Strongly Agree" %> <br />
+  <%= r.radio_button :choice, 2 %><%= r.label "Agree" %> <br />
+  <%= r.radio_button :choice, 3 %><%= r.label "Neutral" %> <br />
+  <%= r.radio_button :choice, 4 %><%= r.label "Disagree" %> <br />
+  <%= r.radio_button :choice, 5 %><%= r.label "Strongly Disagree" %> <br />
+  <%= r.radio_button :choice, 6 %><%= r.label "Don't Care" %> <br /><br />
+  <%= r.submit "Submit" %>
+<% end %>
