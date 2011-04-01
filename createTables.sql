@@ -5,6 +5,8 @@ drop sequence if exists user_id_seq cascade;
 create sequence user_id_seq;
 drop sequence if exists suggestion_id_seq cascade;
 create sequence suggestion_id_seq;
+drop sequence if exists survey_id_seq cascade;
+create sequence survey_id_seq;
 
 -- create tables
 drop table if exists users cascade;
@@ -19,12 +21,24 @@ create table users(
   division text,
   department text
 );
+
+drop table if exists surveys cascade;
+create table surveys(
+  id integer not null primary key default nextval('survey_id_seq'),
+  StronglyAgree integer,
+  Agree integer,
+  Neutral integer,
+  Disagree integer,
+  StronglyDisagree integer,
+  DontCare integer);
+  
 drop table if exists suggestions cascade;
 create table suggestions(
   id integer not null primary key default nextval('suggestion_id_seq'),
   suggestion text unique,
   created_at timestamp,
-  updated_at timestamp
+  updated_at timestamp,
+  surveyID integer references surveys(id)
 );
 
 drop table if exists user_suggestions cascade;

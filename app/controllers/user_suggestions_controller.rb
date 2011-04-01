@@ -62,4 +62,16 @@ class UserSuggestionsController < ApplicationController
   def edit
     @usersuggestion = UserSuggestion.find_by_suggestionid(params[:id])
   end
+  
+  def chooseSurveySugg
+    id = cookies.signed[:user_id]
+    division = cookies.signed[:user_div]
+    if cookies.signed[:divChair]  
+      @usersuggestions = UserSuggestion.find_all_by_division(division)
+    end
+  end
+  
+  def survey
+    @suggestion = UserSuggestion.find_by_suggestionid(params[:id])
+  end
 end

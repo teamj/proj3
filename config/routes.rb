@@ -38,6 +38,8 @@ Proj2::Application.routes.draw do
   match 'user_suggestions/indexSortByDiv' => 'user_suggestions#indexSortByDiv'
   match 'user_suggestions/indexSortByCreate' => 'user_suggestions#indexSortByCreate'
   match 'user_suggestions/indexSortByMod' => 'user_suggestions#indexSortByMod'
+  match 'user_suggestions/chooseSurveySugg' => 'user_suggestions#chooseSurveySugg'
+  match 'user_suggestions/survey' => 'user_suggestions#survey'
   #match 'user_suggestions/suggestion.html' => 'user_suggestions#suggestion'  #TEST FOR FLEX
   # The priority is based upon order of creation:
   # first created -> highest priority.
